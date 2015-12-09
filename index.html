@@ -6,40 +6,51 @@
   <script type="text/javascript">
     $(document).ready(function()
     {
-      do 
-      { var size = prompt('Enter grid height/width (limit is 50): ');
-      } while (size > 50)
-
-      var grid = $('#grid');
-      for (var i=1; i<=size; i++)
-      {	grid.append('<div class="row">');
-	for (var j=1; j<=size; j++)
-	{ grid.append('<div class="square"></div>');
+      function createGrid(size)
+      {	var grid = $('#grid');
+	for (var i=0; i<size; i++)
+	{ grid.append('<div class="row">');
+	  for (var j=0; j<size; j++)
+	  { grid.append('<div class="square"></div>');
+	  }
+	  grid.append('</div>');
 	}
-	grid.append('</div>');
+
+	$('.square').hover(function()
+	{ $(this).css("background-color", "black");
+	});
+	return grid;
       }
 
-      $('.square').hover(function()
-      {	$(this).css("background-color", "black");
+      $('button').click(function()
+      {	do 
+	{ var size = prompt('Enter grid height/width (limit is 50): ');
+	} while (size > 50)
+	myGrid.empty();
+	createGrid(size);
       });
 
+      myGrid = createGrid(50);
     });
   </script>
   <style type="text/css">
-    h1 {width:90%; margin:auto; text-align:center;}
+    .nav {width:90%; margin:auto; text-align:center;}
     #grid {text-align:center;}
     .square 
-    { margin:0px 1px 0px 1px; 
+    { margin: -4px 0px 0px 0px; 
       height:20px; 
       width:20px; 
-      border:1px solid black; 
       display:inline-block;
+      background-color:#cccccc;
     }
   </style>
 </head>
 
 <body>
-  <h1>Nate's Amazing Etch-A-Sketch</h1>
+  <div class="nav">
+    <h1>Nate's Amazing Etch-A-Sketch</h1>
+    <button>New Sketch</button>
+  </div>
   <br>
   <div id="grid">
   </div>
