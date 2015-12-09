@@ -6,7 +6,10 @@
   <script type="text/javascript">
     $(document).ready(function()
     {
-      var size = prompt('Enter grid height/width: ');
+      do 
+      { var size = prompt('Enter grid height/width (limit is 50): ');
+      } while (size > 50)
+
       var grid = $('#grid');
       for (var i=1; i<=size; i++)
       {	grid.append('<div class="row">');
@@ -24,6 +27,7 @@
   </script>
   <style type="text/css">
     h1 {width:90%; margin:auto; text-align:center;}
+    #grid {text-align:center;}
     .square 
     { margin:0px 1px 0px 1px; 
       height:20px; 
@@ -36,6 +40,7 @@
 
 <body>
   <h1>Nate's Amazing Etch-A-Sketch</h1>
+  <br>
   <div id="grid">
   </div>
 </body>
