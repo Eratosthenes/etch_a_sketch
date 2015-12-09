@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Etch-A-Sketch</title>
+  <script type="text/javascript" src="jquery-1.11.3.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function()
+    {
+      var size = prompt('Enter grid height/width: ');
+      var grid = $('#grid');
+      for (var i=1; i<=size; i++)
+      {	grid.append('<div class="row">');
+	for (var j=1; j<=size; j++)
+	{ grid.append('<div class="square"></div>');
+	}
+	grid.append('</div>');
+      }
+
+      $('.square').hover(function()
+      {	$(this).css("background-color", "black");
+      });
+
+    });
+  </script>
+  <style type="text/css">
+    h1 {width:90%; margin:auto; text-align:center;}
+    .square 
+    { margin:0px 1px 0px 1px; 
+      height:20px; 
+      width:20px; 
+      border:1px solid black; 
+      display:inline-block;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Nate's Amazing Etch-A-Sketch</h1>
+  <div id="grid">
+  </div>
+</body>
+</html>
