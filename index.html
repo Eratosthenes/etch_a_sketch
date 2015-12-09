@@ -7,10 +7,11 @@
     $(document).ready(function()
     {
       function createGrid(size)
-      {	var grid = $('#grid');
-	for (var i=0; i<size; i++)
+      {	var n = size || 50;
+	var grid = $('#grid');
+	for (var i=0; i<n; i++)
 	{ grid.append('<div class="row">');
-	  for (var j=0; j<size; j++)
+	  for (var j=0; j<n; j++)
 	  { grid.append('<div class="square"></div>');
 	  }
 	  grid.append('</div>');
@@ -30,14 +31,15 @@
 	createGrid(size);
       });
 
-      myGrid = createGrid(50);
+      myGrid = createGrid();
     });
   </script>
   <style type="text/css">
     .nav {width:90%; margin:auto; text-align:center;}
     #grid {text-align:center;}
     .square 
-    { margin: -4px 0px 0px 0px; 
+    { 
+      vertical-align:top;
       height:20px; 
       width:20px; 
       display:inline-block;
@@ -52,6 +54,7 @@
     <button>New Sketch</button>
   </div>
   <br>
+
   <div id="grid">
   </div>
 </body>
