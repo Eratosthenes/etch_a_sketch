@@ -7,7 +7,7 @@
     $(document).ready(function()
     {
       function createGrid(size)
-      {	var n = size || 50;
+      {	var n = size || 100;
 	var grid = $('#grid');
 	for (var i=0; i<n; i++)
 	{ grid.append('<div class="row">');
@@ -36,8 +36,8 @@
 
       promptUser = function()
       { do 
-	{ var size = prompt('Enter grid height/width (limit is 50): ', 50);
-	} while (size > 50)
+	{ var size = prompt('Enter grid height/width (limit is 100): ', 100);
+	} while (size > 100)
 	myGrid.empty();
 	return size;
       }
@@ -48,7 +48,7 @@
       });
 
       $('#useCharcoal').click(function()
-      {	charcoal = !charcoal
+      {	charcoal = true;
 	createGrid(promptUser());
       });
 
@@ -64,16 +64,17 @@
       margin-bottom:5px;
       text-align:center;
       font-family:Courier;
-      background-color:rgb(0,100,200);
+      background-color:rgb(0,150,200);
       border-radius:15px;
     }
     #container{text-align:center;}
     #grid {display:inline-block; text-align:center; border:1px solid black;}
     .square 
     { vertical-align:top;
-      height:20px; 
-      width:20px; 
-      display:inline-block;
+      height:5px; 
+      width:5px; 
+      font-size:0px;
+      float:left;
       background-color:white;
     }
     #viewSource
